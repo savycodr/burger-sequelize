@@ -37,10 +37,9 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    console.log("YOU have submited a Devour THis");
 
     var id = $(this).data("id");
-
+    console.log("YOU have submited a Devour THis " + id);
     // Send the POST request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
