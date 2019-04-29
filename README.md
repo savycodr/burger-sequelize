@@ -10,11 +10,12 @@ A web oriented Restaurant App. The user can visit the burger website to see a li
 * This app uses a MySQL database to persist the burger data.
 * The server uses Handlebars templates to present the data to the client.
 * The app follows the Model View Controller design pattern.
-* The server uses a Object Relational Mapping file.
+* The server uses  Sequelize JS for Object Relational Mapping.
 * The server is deployed on Heroku.
 * The HTML uses Bootstrap CSS libraries.
 * The client uses JQuery libraries to assist with making requests to the server and handling the response.
 * The server uses the Express Node package to handle server-side listening and handling requests from the client.
+* The server uses the dotenv package to hide the development database information.
 
 
 

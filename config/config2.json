@@ -1,7 +1,12 @@
-  {
+
+{
   "development": {
-    "use_env_variable": "LOCALDB",
-    "dialect": "mysql"
+      "username": "root",
+      "password": "password",
+      "database": "burgers_db",
+      "host": "localhost",
+      "port": 3306,
+      "dialect": "mysql"
   },
   "test": {
     "username": "root",
