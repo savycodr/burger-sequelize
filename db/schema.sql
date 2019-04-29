@@ -1,0 +1,21 @@
+### Schema
+
+CREATE DATABASE burgers_db;
+USE burgers_db;
+
+DROP TABLE burgers
+
+CREATE TABLE burgers
+(
+	id INT AUTO_INCREMENT NOT NULL,
+	burger_name varchar(255) NOT NULL,
+	devoured BOOLEAN DEFAULT false,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(id)
+);
+
+ALTER TABLE burgers MODIFY createdAt SET DEFAULT CURRENT_TIMESTAMP;
+SELECT * FROM BURGERS
+
+UPDATE BURGERS SET devoured=0 WHERE id=1
+

@@ -1,0 +1,31 @@
+{{!-- We want two columns, one for eaten and one for not eaten yet --}}
+
+  <div class="row">
+    <div class="col-sm-7"> 
+      <h4>Burgers to Eat</h4>
+      <ol>
+        {{#each burgers}}
+          {{#unless devoured}}
+            <li>{{burger_name}}
+            <button data-id="{{this.id}}" class="eatBurger">Devour This</button>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ol>
+    </div>
+    <div class="col-sm-5"> 
+      <h4>Burgers That We Ate</h4>
+      <ol>
+        {{#each burgers}}
+          {{#if devoured}}
+            <li>{{burger_name}}
+            </li>
+          {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+    {{!-- <div class="col-sm-1"> </div> --}}
+  </div>
+
+
+
