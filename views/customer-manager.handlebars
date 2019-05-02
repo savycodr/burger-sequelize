@@ -1,0 +1,49 @@
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-light" href="/">Go to Burger</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="customer-container">
+          <h1>Customers</h1>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th># of Burgers</th>
+                <th>See Customer's Burgers</th>
+                <th>New Burger</th>
+                <th>Delete Customer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each customers}}
+                <tr>
+                <td>{{name}}</td>
+                <td>{{Burgers.length}}</td>
+                <td>See Customer's Burgers</td>
+                <td>New Burger</td>
+                <td><a href="#" class="delete-customer" data-id="{{id}}">Delete Customer</a></td>
+                </tr>
+              {{/each}}
+              
+              <tr id="form-row">
+                <form id="customer-form">
+                  <td colspan="4">
+                    <input placeholder="Enter a name" id="customer-name" type="text" />
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-success">Create Customer</button>
+                  </td>
+                </form>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </d>
+    <!-- Custom Script -->
+		<script src="/assets/js/customer.js"></script>

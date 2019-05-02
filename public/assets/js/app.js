@@ -6,6 +6,7 @@ $(function() {
   $(".add-burger").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log("THE SUBMIT HAS BEEN HIT");
 
     // Get the burger input and make sure it is not null
     var bName = $("#burger");
@@ -14,8 +15,21 @@ $(function() {
       $("#validNameFeedback").text("Please Enter a Burger");
       return;
     }
+
+    // Get the burger input and make sure it is not null
+
+    var cName = $("#customerFormControlSelect1 option:selected");
+    // Error handling if the burger name was not input
+    if ((!cName.val()) || (cName.val().trim() === "")){
+      $("#validNameFeedback").text("Please Enter a Customer");
+      return;
+    }
+    var cId = cName.data("id");
+    console.log("The cusotmer nAME is " + cName);
+    console.log("The cusotmer id is " + cId);
       var burger = {
-      burger_name: bName.val().trim()
+      burger_name: bName.val().trim(),
+      CustomerId: cId
     };
 
     // Send the POST request.

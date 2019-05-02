@@ -1,7 +1,7 @@
 // The Database Model of a burger. This object is a Sequelize representation of the 
 // burgers table
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Burger = sequelize.define("Burger", {
     burger_name: {
       type: DataTypes.STRING,
@@ -20,5 +20,16 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   });
+
+  // This is how we create a foriegn key, every burger has a customer
+  Burger.associate = function (models) {
+    // We're saying that a Burger should belong to an Customer
+    // A Burger can't be created without an Customer due to the foreign key constraint
+    Burger.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Burger;
 };

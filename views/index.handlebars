@@ -1,31 +1,77 @@
 {{!-- We want two columns, one for eaten and one for not eaten yet --}}
-
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-md-2 col-sm-2">
+      <a class="btn btn-light" href="/customers">Manage Customers</a>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-sm-7"> 
-      <h4>Burgers to Eat</h4>
-      <ol>
-        {{#each burgers}}
-          {{#unless devoured}}
-            <li>{{burger_name}}
-            <button data-id="{{this.id}}" class="eatBurger">Devour This</button>
-            </li>
-          {{/unless}}
-        {{/each}}
-      </ol>
+    <div class="col-sm-3"> </div>
+    <div class="col-sm-6">
+      <div class="text-center">
+        <h1>Burgers!</h1>
+        <img src="assets/img/burger-151421_1280.png" style="width:400px; height:auto;">
+        <h2>Burgers Made To Order</h2>
+
+        <form class="add-burger">
+
+          <div class="form-group">
+            <label for="burger">Burger Name</label>
+            <input type="text" id="burger" name="newBurger">
+          </div>
+
+          <div class="form-group">
+            <label for="customerFormControlSelect1">Customer Name</label>
+            <select class="form-control" id="customerFormControlSelect1">
+              {{#each customers}}
+              <option  data-id="{{this.id}}">{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+
+          <button id="addBurgerButton" type="submit">Submit</button>
+        </form>
+        <p>Enter a burger you want to eat. Then hit submit.</p>
+        <div id="validNameFeedback" style="color: red"></div>
+        <hr>
+      </div>
     </div>
-    <div class="col-sm-5"> 
-      <h4>Burgers That We Ate</h4>
-      <ol>
-        {{#each burgers}}
-          {{#if devoured}}
-            <li>{{burger_name}}
-            </li>
-          {{/if}}
-        {{/each}}
-      </ol>
-    </div>
-    {{!-- <div class="col-sm-1"> </div> --}}
+    <div class="col-sm-3"> </div>
   </div>
 
+  <div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-8">
 
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>Burgers to Eat</h4>
+          <ol>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li>{{burger_name}}
+              <button data-id="{{this.id}}" class="eatBurger">Devour This</button>
+            </li>
+            {{/unless}}
+            {{/each}}
+          </ol>
+        </div>
+        <div class="col-sm-5">
+          <h4>Burgers That We Ate</h4>
+          <ol>
+            {{#each burgers}}
+            {{#if devoured}}
+            <li>{{burger_name}}
+            </li>
+            {{/if}}
+            {{/each}}
+          </ol>
+        </div>
+        {{!-- <div class="col-sm-1"> </div> --}}
+      </div>
 
+    </div>
+    <div class="col-sm-2"> </div>
+  </div>
+</div>

@@ -27,13 +27,21 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 var routes = require("./controllers/burgers_controller.js");
 app.use(routes);
-// require("./routes/api-routes.js")(app);
+
+var routes2 = require("./controllers/customer_controller.js");
+app.use(routes2);
+
+// require("./controllers/burgers_controller.js")(app);
+// require("./controllers/customer_controller.js")(app);
+
 
 
 // Syncing our sequelize models and then starting our Express app
+// force: true means teh db table will eb dropped and recreated at each instance of the server
 // =============================================================
 db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
+  // db.sequelize.sync({}).then(function() {
+    app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });

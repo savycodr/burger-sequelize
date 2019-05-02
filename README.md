@@ -15,7 +15,7 @@ A web oriented Restaurant App. The user can visit the burger website to see a li
 * The HTML uses Bootstrap CSS libraries.
 * The client uses JQuery libraries to assist with making requests to the server and handling the response.
 * The server uses the Express Node package to handle server-side listening and handling requests from the client.
-* The server uses the dotenv package to hide the development database information.
+* The server uses the dotenv package to hide the development database connection information.
 
 
 
