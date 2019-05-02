@@ -37,10 +37,10 @@ app.use(routes2);
 
 
 // Syncing our sequelize models and then starting our Express app
-// force: true means teh db table will eb dropped and recreated at each instance of the server
+// force: true means teh db table will be dropped and recreated at each instance of the server
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
-  // db.sequelize.sync({}).then(function() {
+// db.sequelize.sync({ force: true }).then(function() {
+  db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

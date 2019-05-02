@@ -18,7 +18,8 @@ router.get("/", function (req, res) {
 
       var hbsObject = {
         burgers: data,
-        customers: data1
+        customers: data1,
+        showForm: true
       };
 
       // HLS Note if customers is empty,  render the customer_manager
@@ -33,6 +34,30 @@ router.get("/", function (req, res) {
     });
   });
 });
+
+// This function will display all of the burgers belonging to a customer's id
+router.get("/api/burgers-for-customer/:id", function (req, res) {
+  db.Burger.findAll({
+    where: {
+      CustomerId: req.params.id
+    }
+  }).then(function (data) {
+    var hbsObject = {
+      burgers: data,
+      showForm: false
+    };
+  // res.json(dbTodo);
+    // res.render("customer-burgers", hbsObject);
+    res.render("index", hbsObject);
+  })
+  .catch(function (err) {
+    // Whenever a validation or flag fails, an error is thrown
+    // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+    res.json(err);
+  });
+
+});
+
 
 
 // this route will take the new burger info and write it to the database
