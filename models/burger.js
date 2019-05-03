@@ -28,7 +28,9 @@ module.exports = function (sequelize, DataTypes) {
     Burger.belongsTo(models.Customer, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade",
+      hooks: true
     });
   };
   return Burger;
